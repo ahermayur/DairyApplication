@@ -1,0 +1,127 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/action_container"
+    android:layout_height="match_parent"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_marginBottom="70dp"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:id="@+id/cointner"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="70dp">
+
+
+
+        </FrameLayout>
+    </ScrollView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp">
+
+           <RadioGroup
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal">
+
+               <RadioButton
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/rbtn_rain"
+                   android:text="Rain"
+                   android:textSize="25dp"/>
+               <RadioButton
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/rbtn_winter"
+                   android:text="Winter"
+                   android:textSize="25dp"
+                   android:layout_marginLeft="20dp"/>
+               <RadioButton
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/rbtn_summer"
+                   android:text="Summer"
+                   android:textSize="25dp"
+                   android:layout_marginLeft="20dp"/>
+           </RadioGroup>
+
+        </LinearLayout>
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="65dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Title"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_margin="15dp"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/et__dies_title"
+                    android:inputType="textMultiLine"
+                    android:layout_marginLeft="60dp"
+                    android:hint="Enter title......"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Description"
+                    android:textStyle="bold"
+
+                    android:textSize="20dp"
+                    android:layout_margin="15dp"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/et__dies_description"
+                    android:inputType="textMultiLine"
+                    android:hint="Enter Description......"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Add"
+                    android:id="@+id/btn_insert_dies"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Clear"
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/btn_clear"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+
+</FrameLayout>

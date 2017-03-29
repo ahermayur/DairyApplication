@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mayur.dairyapplication.ViewRateTable">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Rate Table"
+        android:padding="10dp"
+        android:textSize="25dp"
+        android:id="@+id/tv_titleheading"
+        android:textColor="@android:color/holo_green_light" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+
+        android:layout_below="@+id/tv_titleheading"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="100dp"
+
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Fat"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textStyle="bold"
+
+            />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="20dp"
+
+            android:text="SNF"
+            />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Rate"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+
+            android:layout_marginRight="10dp"
+            />
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:id="@+id/lv_rate"
+        android:layout_marginTop="90dp"
+        android:layout_alignParentStart="true" />
+
+
+</RelativeLayout>

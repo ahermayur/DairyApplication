@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_owner__registration_"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.mayur.dairyapplication.Owner_Registration_Activity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Update Milk Details"
+                android:padding="10dp"
+                android:textSize="30dp"
+                android:id="@+id/tv_titleheading"
+                android:textColor="@android:color/holo_green_light"
+                android:textAppearance="?android:textAppearanceLarge"
+                />
+
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:text="Farmer ID"
+                android:id="@+id/tv_fid"
+                android:layout_below="@+id/btn_datepicker"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="15dp" />
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:layout_height="40dp"
+                android:text="Quantity"
+                android:id="@+id/tv_quantity"
+                android:layout_below="@+id/tv_fid"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="15dp" />
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:text="Fat"
+                android:id="@+id/tv_fat"
+                android:layout_below="@+id/tv_quantity"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="15dp" />
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:text="Degree"
+                android:id="@+id/tv_deg"
+                android:layout_below="@+id/tv_fat"
+                android:layout_alignParentStart="true"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:layout_marginTop="15dp" />
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:text="SNF"
+                android:layout_below="@+id/tv_deg"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="15dp"
+                android:id="@+id/tv_snf" />
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:text="Rate"
+                android:id="@+id/tv_rate"
+                android:layout_below="@+id/tv_snf"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="15dp" />
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:text="Total"
+                android:id="@+id/tv_total"
+                android:layout_below="@+id/tv_rate"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="15dp" />
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorAccent"
+                android:id="@+id/et_up_total"
+                android:maxLength="5"
+                android:inputType="numberDecimal"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/et_up_rate"
+                android:layout_toEndOf="@+id/tv_total" />
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:inputType="numberDecimal"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorAccent"
+                android:id="@+id/et_up_deg"
+                android:maxLength="5"
+                android:layout_alignTop="@+id/tv_deg"
+                android:layout_toEndOf="@+id/tv_deg" />
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:maxLength="6"
+                android:inputType="numberDecimal"
+                android:textColor="@color/colorAccent"
+                android:id="@+id/et_up_quantity"
+                android:layout_alignTop="@+id/tv_quantity"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@+id/tv_quantity" />
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:inputType="number"
+                android:maxLength="5"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorAccent"
+                android:id="@+id/et_up_Fid"
+                android:layout_alignTop="@+id/tv_fid"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@+id/tv_fid" />
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorAccent"
+                android:id="@+id/et_up_snf"
+                android:maxLength="4"
+                android:layout_alignTop="@+id/tv_snf"
+                android:layout_alignParentEnd="true"
+                android:inputType="numberDecimal"
+                android:layout_toEndOf="@+id/tv_snf" />
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorAccent"
+                android:id="@+id/et_up_rate"
+                android:maxLength="5"
+                android:inputType="numberDecimal"
+                android:layout_alignTop="@+id/tv_rate"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@+id/tv_rate" />
+            <Button
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Update"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="@android:color/holo_blue_bright"
+                android:textSize="27dp"
+                android:background="?android:attr/colorMultiSelectHighlight"
+                android:id="@+id/btn_update"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/et_up_total"
+                />
+
+            <EditText
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:paddingTop="10dp"
+                android:hint="Choose Date"
+                android:layout_below="@+id/tv_titleheading"
+                android:layout_toStartOf="@+id/btn_datepicker"
+                android:id="@+id/et_date" />
+
+            <ImageButton
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/calender"
+                android:id="@+id/btn_datepicker"
+                android:layout_below="@+id/tv_titleheading"
+                android:layout_toEndOf="@+id/tv_fid" />
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:inputType="numberDecimal"
+                android:maxLength="3"
+                android:textColor="@color/colorAccent"
+                android:id="@+id/et_up_fat"
+                android:layout_alignTop="@+id/tv_fat"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@+id/tv_fat" />
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

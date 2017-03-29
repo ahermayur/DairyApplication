@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mayur.dairyapplication">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Login_Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".FarmerRegister" />
+        <activity android:name=".Admin.AdminDashboard" />
+        <activity android:name=".Admin.AddVideo" />
+        <activity android:name=".Admin.Watch_Video" />
+        <activity android:name=".Admin.BasicPlayerActivity" />
+        <activity android:name=".SetMilkRate" />
+        <activity android:name=".Owner.Fragment_MilkPurchase" />
+        <activity android:name=".ViewRateTable" />
+        <activity android:name=".TodaysCollection" />
+        <activity android:name=".UpdateMilkDetails" />
+        <activity android:name=".Admin.Admin_Dashboard" />
+        <activity android:name=".Farmer.Farmer_Dashboard" />
+        <activity
+            android:name=".Owner.Owner_Dashboard"
+            android:label="@string/title_activity_owoner__dashboard"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Admin.View_Disease" />
+        <activity android:name=".Admin.View_Disease_Info" />
+        <activity android:name=".Owner_Registration" />
+        <activity android:name=".Owner.View_Farmer_List" />
+        <activity android:name=".Farmer.Farmer_Payment"></activity>
+    </application>
+
+</manifest>

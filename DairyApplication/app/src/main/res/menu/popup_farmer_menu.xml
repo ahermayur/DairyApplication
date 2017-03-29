@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/popup_15days"
+        android:orderInCategory="100"
+        android:title="15 days Collection" />
+    <item
+        android:id="@+id/popup_30days"
+        android:orderInCategory="101"
+        android:title="30 days Collection" />
+    <item
+        android:id="@+id/popup_description"
+        android:orderInCategory="101"
+        android:title="Description" />
+</menu>

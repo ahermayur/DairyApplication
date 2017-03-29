@@ -1,0 +1,72 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FF39CCB3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Title"
+            android:layout_margin="10dp"
+            android:textColor="#000"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            android:id="@+id/tv_d_title"
+            android:gravity="center"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:layout_height="wrap_content" />
+        <ScrollView android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/tv_d_title">
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    android:orientation="vertical">
+        <android.support.v7.widget.CardView android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="20dp"
+            app:cardBackgroundColor="#00000000"
+            android:padding="5dp">
+            <LinearLayout
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+        <TextView
+        android:text="Season : "
+        android:textColor="#000"
+        android:id="@+id/tv_d_season"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:padding="5dp"
+        android:layout_height="wrap_content" />
+     <TextView
+            android:text="Descripion : "
+            android:textColor="#000"
+            android:padding="5dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginLeft="50dp"
+            android:text="Descripion : "
+            android:textColor="#FFF"
+            android:padding="5dp"
+            android:id="@+id/tv_d_Descripion"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <LinearLayout
+            android:id="@+id/ll_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+</LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_add_video"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#FF39CCB3"
+    tools:context="com.example.mayur.dairyapplication.Admin.AddVideo">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textWebEditText"
+        android:drawableLeft="@drawable/ic_video"
+        android:drawablePadding="5dp"
+        android:layout_below="@+id/textView3"
+        android:drawableTint="#F17"
+        android:layout_marginTop="46dp"
+        android:id="@+id/et_video_title"
+        android:layout_alignParentEnd="true"
+        android:padding="5dp"
+        android:layout_alignParentStart="true"
+        android:text="Enter Video "
+        android:textAppearance="?android:textAppearanceMedium" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textWebEditText"
+
+        android:drawableLeft="@drawable/url"
+        android:drawablePadding="5dp"
+        android:id="@+id/et_video_id"
+        android:hint="Enter Video Url"
+        android:padding="5dp"
+        android:text="https://www.youtube.com/watch?v="
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:text="Youtube Video ID"
+        android:padding="5dp"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+        android:id="@+id/videoid"
+        android:layout_marginTop="36dp"
+        android:layout_below="@+id/et_video_id"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:drawableTop="@drawable/youtube"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:text="Add Youtube Video"
+        android:padding="5dp"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+        android:drawablePadding="5dp"
+        android:id="@+id/textView3"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text=" Save "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:layout_marginTop="34dp"
+        android:id="@+id/btn_save"
+        android:textAllCaps="false"
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/videoid"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

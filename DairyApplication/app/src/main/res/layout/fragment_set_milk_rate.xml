@@ -1,0 +1,64 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mayur.dairyapplication.SetMilkRate">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:text="Set Milk Rate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textSize="30dp"
+            android:textColor="@android:color/holo_green_light"
+            android:id="@+id/textView2" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2.0"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:layout_marginTop="50dp"
+            android:id="@+id/et_set_Fat"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:text="5.0"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:id="@+id/et_setsnf"
+            />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Set Rate"
+            android:maxLength="5"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:layout_gravity="center"
+            android:inputType="numberDecimal"
+            android:padding="10dp"
+            android:id="@+id/et_setrate"
+            />
+
+        <Button
+            android:id="@+id/btnsetrate"
+            android:layout_width="wrap_content"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="Set New Rate" />
+    </LinearLayout>
+</FrameLayout>

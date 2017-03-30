@@ -135,19 +135,20 @@ public class Fragment_MilkPurchase extends AppCompatActivity {
         snf = snf/10;
         float rate=session.getMilkRate();
         String cal_rate=""+rate;
-        for(float i=2;i<=fat;i= (float) (i+0.1))
+
+        for(double i=2;i<=fat;i= (i+0.1))
         {
             i = Math.round(i * 10);
             i = i/10;
-            for(float j=5;j<=snf;j= (float) (j+0.1))
+            float rate1 = rate;
+            for(double j=5;j<=snf;j= (j+0.1))
             {
                 j = Math.round(j * 10);
                 j = j/10;
-                rate= (float) (rate+0.20);
-                rate = Math.round(rate * 100);
-                rate = rate/100;
-                cal_rate=rate+"";
-
+                rate1= (float) (rate1+0.20);
+                rate1 = Math.round(rate1 * 100);
+                rate1 = rate1/100;
+                cal_rate=rate1+"";
             }
             rate= (float) (rate+0.30);
             rate = Math.round(rate * 100);

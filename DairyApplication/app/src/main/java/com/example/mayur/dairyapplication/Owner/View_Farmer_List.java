@@ -44,7 +44,7 @@ public class View_Farmer_List extends AppCompatActivity {
 
         lv_farmer_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
 
 
                 final PopupMenu popup = new PopupMenu(View_Farmer_List.this, lv_farmer_list);
@@ -58,11 +58,15 @@ public class View_Farmer_List extends AppCompatActivity {
                         {
                             case R.id.popup_15days:
                                 intent.putExtra("day",15);
+                                intent.putExtra("name",Collection1.get(position).getFarmer_name());
+                                intent.putExtra("id",Collection1.get(position).farmer_id);
                                 startActivity(intent);
                                 finish();
                                 break;
                             case R.id.popup_30days:
-                                intent.putExtra("day",15);
+                                intent.putExtra("day",30);
+                                intent.putExtra("name",Collection1.get(position).getFarmer_name());
+                                intent.putExtra("id",Collection1.get(position).farmer_id);
                                 startActivity(intent);
                                 finish();
                                 break;

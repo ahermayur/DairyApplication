@@ -552,6 +552,21 @@ import java.util.Map;
          result = new JSONObject(r);
          return result;
      }
+     public JSONObject GetPaymentDetails(int fid,String startdate,String enddate) throws Exception {
+         JSONObject result = null;
+         JSONObject o = new JSONObject();
+         JSONObject p = new JSONObject();
+         o.put("interface","RestAPI");
+         o.put("method", "GetPaymentDetails");
+         p.put("fid",mapObject(fid));
+         p.put("startdate",mapObject(startdate));
+         p.put("enddate",mapObject(enddate));
+         o.put("parameters", p);
+         String s = o.toString();
+         String r = load(s);
+         result = new JSONObject(r);
+         return result;
+     }
 
  }
 

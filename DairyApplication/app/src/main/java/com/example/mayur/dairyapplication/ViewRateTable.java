@@ -47,11 +47,11 @@ protected void onCreate(Bundle savedInstanceState) {
 
 
         length=0;
-        for(float i=2;i<=5.1;i= (float) (i+0.1))
+        for(double i=2;i<=5.1;i=  (i+0.1))
         {
             i = Math.round(i * 10);
             i = i/10;
-            for(float j=5;j<10.1;j= (float) (j+0.1))
+            for(double j=5;j<10.1;j= (j+0.1))
             {
                 j = Math.round(j * 10);
                 j = j/10;
@@ -63,12 +63,12 @@ protected void onCreate(Bundle savedInstanceState) {
         String rates[]=new String[length];
         float rate=session.getMilkRate();
         length=0;
-        for(float i=2;i<=5.1;i= (float) (i+0.1))
+        for(double i=2;i<=5.1;i=  (i+0.1))
         {
             i = Math.round(i * 10);
             i = i/10;
             float rate1 = rate;
-            for(float j=5;j<10.1;j= (float) (j+0.1))
+            for(double j=5;j<10.1;j= (j+0.1))
             {
                 j = Math.round(j * 10);
                 j = j/10;

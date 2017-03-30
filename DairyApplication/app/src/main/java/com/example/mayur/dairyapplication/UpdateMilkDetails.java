@@ -260,19 +260,20 @@ public class UpdateMilkDetails extends AppCompatActivity {
         snf = snf/10;
         float rate=session.getMilkRate();
         String cal_rate=""+rate;
-        for(float i=2;i<=fat;i= (float) (i+0.1))
+
+        for(double i=2;i<=fat;i= (i+0.1))
         {
             i = Math.round(i * 10);
             i = i/10;
-            for(float j=5;j<=snf;j= (float) (j+0.1))
+            float rate1 = rate;
+            for(double j=5;j<=snf;j= (j+0.1))
             {
                 j = Math.round(j * 10);
                 j = j/10;
-                rate= (float) (rate+0.20);
-                rate = Math.round(rate * 100);
-                rate = rate/100;
-                    cal_rate=rate+"";
-
+                rate1= (float) (rate1+0.20);
+                rate1 = Math.round(rate1 * 100);
+                rate1 = rate1/100;
+                cal_rate=rate1+"";
             }
             rate= (float) (rate+0.30);
             rate = Math.round(rate * 100);
@@ -293,22 +294,38 @@ public class UpdateMilkDetails extends AppCompatActivity {
         et_up_total.setText("");
     }
     private class AsyncUpdateMilkDetails extends AsyncTask<UpdateMilk_Cons,Void,Void>{
+        boolean result=false;
+
+        RestAPI api=new RestAPI();
+        ProgressDialog progress;
 
         @Override
+        protected void onPreExecute() {
+            progress= new ProgressDialog(UpdateMilkDetails.this);
+            progress.setIndeterminate(true);
+            progress.setMessage("Getting Records...");
+            progress.show();
+        }
+        @Override
         protected Void doInBackground(UpdateMilk_Cons... params) {
-            RestAPI api=new RestAPI();
             try
             {
                 JSONObject jsonObject=api.SelectMilkPurchaseDetails(params[0].getFid(),params[0].getDate());
                 JSONArray jsonArray=jsonObject.getJSONArray("Value");
 
                 JSONObject jsonObj=null;
+
+                if(jsonArray.length()>0)
+                {
+                    result=true;
+                }
+                else
+                {
+                    result=false;
+                }
                 for(int i=0;i<jsonArray.length();i++)
                 {
                     jsonObj=jsonArray.getJSONObject(i);
-
-//                    arrayList.add(new InsertHolidays(jsonObj.get("HolidayName").toString(), jsonObj.get("Date").toString(), jsonObj.get("Image").toString()));
-
                     quantity=jsonObj.get("Milk_Quantity").toString();
                     fat=jsonObj.get("Fat").toString();
                     deg=jsonObj.get("deg").toString();
@@ -326,7 +343,14 @@ public class UpdateMilkDetails extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            setValue();
+            progress.dismiss();
+            if(result==true) {
+                setValue();
+            }
+            else
+            {
+                fid.setError("Record Not Found, please check farmer id");
+            }
         }
     }
 

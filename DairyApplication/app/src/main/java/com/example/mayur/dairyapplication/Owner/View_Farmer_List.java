@@ -1,7 +1,9 @@
 package com.example.mayur.dairyapplication.Owner;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -69,6 +71,43 @@ public class View_Farmer_List extends AppCompatActivity {
                                 intent.putExtra("id",Collection1.get(position).farmer_id);
                                 startActivity(intent);
                                 finish();
+                                break;
+                            case R.id.popup_removefarmer:
+                                AlertDialog.Builder builder=new AlertDialog.Builder(View_Farmer_List.this);
+                                builder.setMessage("Do you want to remove this farmer ? \n All records will be deleted ");
+                                builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        RestAPI restAPI=new RestAPI();
+                                        boolean result=false;
+                                        JSONObject object;
+                                        try {
+                                            object=restAPI.DeleteFarmer(Collection1.get(position).farmer_id);
+                                            result=object.getBoolean("Value");
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+                                        finally {
+                                            if (result==true)
+                                            {
+                                                alert.showAlertDialog1(View_Farmer_List.this,"Deleted","Farmer is no longer avilable",true);
+                                            }
+                                        }
+                                        finish();
+                                    }
+                                });
+                                builder.setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                    }
+                                });
+                                AlertDialog alertDialog=builder.create();
+                                alertDialog.setIcon(R.drawable.warning);
+                                alertDialog.setTitle("Exit");
+                                alertDialog.show();
+
+
                                 break;
                         }
                         return true;

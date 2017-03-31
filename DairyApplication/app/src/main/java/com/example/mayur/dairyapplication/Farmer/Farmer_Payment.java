@@ -1,7 +1,9 @@
 package com.example.mayur.dairyapplication.Farmer;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.daasuu.cat.CountAnimationTextView;
+import com.example.mayur.dairyapplication.Owner.View_Farmer_List;
 import com.example.mayur.dairyapplication.R;
 import com.example.mayur.dairyapplication.RestAPI;
 import com.example.mayur.dairyapplication.SharePreferances.AlertDialogManager;
@@ -34,6 +37,7 @@ public class Farmer_Payment extends AppCompatActivity {
     public ArrayList<Initiator> Collection1;
     Context context;
     int day_count=15;
+    int date_diff=15;
     int farmer_id;
     TextView tv_payment_total_milk,tv_payment_avg_fat,tv_payment_avg_snf,tv_payment_avg_rate,farmer_name,next,previous,payment_date;
     CountAnimationTextView tv_payment_total_payment;
@@ -70,7 +74,7 @@ public class Farmer_Payment extends AppCompatActivity {
         farmer_id=bundle.getInt("id");
         farmer_name.setText(bundle.getString("name"));
         day_count=bundle.getInt("day");
-
+        date_diff=day_count;
         calculateday();
         payment_date.setText(" ( "+first_day+" to "+last_day+" ) / "+current_v_month+" / "+current_v_year);
         Collection1 = new ArrayList<>();
@@ -90,7 +94,7 @@ public class Farmer_Payment extends AppCompatActivity {
     }
 
     public void calculateday() {
-        if(day_count==15) {
+        if(day_count<=16) {
             if (cal.get(Calendar.DAY_OF_MONTH) <= 15) {
                 start_date = cal.get(Calendar.YEAR) + "-" + (cal.get(Calendar.MONTH) + 1) + "-01";
                 end_date = cal.get(Calendar.YEAR) + "-" + (cal.get(Calendar.MONTH) + 1) + "-15";
@@ -116,25 +120,10 @@ public class Farmer_Payment extends AppCompatActivity {
 
     public void next()
     {
-        if(day_count<=15)
+        if(day_count<=16)
         {
             if(first_day==1) {
-                if(first_day==31)
-                {
-                    cal.add(Calendar.DAY_OF_MONTH, 16);
-                }
-                if(first_day==30)
-                {
-                    cal.add(Calendar.DAY_OF_MONTH, 15);
-                }
-                if(first_day==29)
-                {
-                    cal.add(Calendar.DAY_OF_MONTH, 14);
-                }
-                if(first_day==28)
-                {
-                    cal.add(Calendar.DAY_OF_MONTH, 13);
-                }
+                cal.add(Calendar.DAY_OF_MONTH, 15);
             }
             if(first_day==16) {
                 cal.add(Calendar.DAY_OF_MONTH, 15);
@@ -144,29 +133,17 @@ public class Farmer_Payment extends AppCompatActivity {
         {
             cal.add(Calendar.MONTH, 1);
         }
+        current_v_year=cal.get(Calendar.YEAR);
+        current_v_month=(cal.get(Calendar.MONTH) + 1);
         calculateday();
     }
     public void previous()
     {
-        if(day_count<=15)
+        if(day_count<=16)
         {
             if(first_day==1) {
-                if(first_day==31)
-                {
-                    cal.add(Calendar.DAY_OF_MONTH, -16);
-                }
-                if(first_day==30)
-                {
-                    cal.add(Calendar.DAY_OF_MONTH, -15);
-                }
-                if(first_day==29)
-                {
-                    cal.add(Calendar.DAY_OF_MONTH, -14);
-                }
-                if(first_day==28)
-                {
-                    cal.add(Calendar.DAY_OF_MONTH, -13);
-                }
+
+                cal.add(Calendar.DAY_OF_MONTH, -15);
             }
             if(first_day==16) {
                 cal.add(Calendar.DAY_OF_MONTH, -15);
@@ -176,6 +153,8 @@ public class Farmer_Payment extends AppCompatActivity {
         {
             cal.add(Calendar.MONTH, -1);
         }
+        current_v_year=cal.get(Calendar.YEAR);
+        current_v_month=(cal.get(Calendar.MONTH) + 1);
         calculateday();
     }
 
@@ -323,29 +302,34 @@ public class Farmer_Payment extends AppCompatActivity {
                 Collection1 = new ArrayList<>();
                 JSONObject jsonObj = null;
                 listsize = jsonArray.length();
-                int temp=first_day;
-                int day=1,month=1;
-                for (int i = 0; i < jsonArray.length()+1; i++) {
-                    try {
-                        jsonObj = jsonArray.getJSONObject(i);
-                        day = jsonObj.getInt("Day");
-                        month = jsonObj.getInt("Month");
-                    }
-                    catch (Exception e)
-                    {
-                        while (last_day>temp)
-                        {
-                            temp++;
-                            Collection1.add(new Initiator((temp)+"-"+month, 0.0, 0.0, 0.0, 0.0));
+                if(listsize>0) {
+
+                    int temp = first_day;
+                    int day = 1, month = 1;
+                    for (int i = 0; i < jsonArray.length() + 1; i++) {
+                        try {
+                            jsonObj = jsonArray.getJSONObject(i);
+                            day = jsonObj.getInt("Day");
+                            month = jsonObj.getInt("Month");
+                        } catch (Exception e) {
+                            if (Collection1.size() == 0) {
+                                Collection1.add(new Initiator((temp) + "-" + month, 0.0, 0.0, 0.0, 0.0));
+                            }
+                            while (last_day > temp) {
+                                temp++;
+                                Collection1.add(new Initiator((temp) + "-" + month, 0.0, 0.0, 0.0, 0.0));
+                            }
                         }
+                        jsonObj = jsonArray.getJSONObject(i);
+                        while (day > temp) {
+                            Collection1.add(new Initiator((temp) + "-" + month, 0.0, 0.0, 0.0, 0.0));
+                            temp++;
+                        }
+                        Collection1.add(new Initiator(day + "-" + month, jsonObj.getDouble("Milk_Quantity"), jsonObj.getDouble("Fat"), jsonObj.getDouble("snf"), jsonObj.getDouble("MilkRate")));
                     }
-                    jsonObj = jsonArray.getJSONObject(i);
-                    while (day>temp)
-                    {
-                        Collection1.add(new Initiator((temp)+"-"+month, 0.0, 0.0, 0.0, 0.0));
-                        temp++;
-                    }
-                    Collection1.add(new Initiator(day+"-"+month, jsonObj.getDouble("Milk_Quantity"), jsonObj.getDouble("Fat"), jsonObj.getDouble("snf"), jsonObj.getDouble("MilkRate")));
+                }
+                else {
+                    result=false;
                 }
             }
             catch (Exception e)
@@ -359,13 +343,23 @@ public class Farmer_Payment extends AppCompatActivity {
         protected void onPostExecute(Void aVoid) {
             progress.dismiss();
             if(result==false) {
-                alert.showAlertDialog1(Farmer_Payment.this,"Failed","No Record found",true);
+                AlertDialog.Builder builder=new AlertDialog.Builder(Farmer_Payment.this);
+                builder.setMessage("No Record's Found");
+                builder.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                });
+                AlertDialog alertDialog=builder.create();
+                alertDialog.setIcon(R.drawable.warning);
+                alertDialog.setTitle("Not Avilable..");
+                alertDialog.show();
             }
             else
             {
                 setAdapter();
             }
         }
-
     }
 }
